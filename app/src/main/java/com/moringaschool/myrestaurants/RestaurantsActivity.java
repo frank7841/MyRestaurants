@@ -45,7 +45,7 @@ public class RestaurantsActivity extends AppCompatActivity {
 //        mListView =(ListView)findViewById(R.id.listView);
 //        mLocationTextView = (TextView)findViewById(R.id.locationTextView);
         ButterKnife.bind(this);
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, restaurants);
+        MyRestaurantsArrayAdapter adapter = new MyRestaurantsArrayAdapter(this,android.R.layout.simple_list_item_1, restaurants, cuisines);
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
