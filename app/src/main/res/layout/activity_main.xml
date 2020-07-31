@@ -22,10 +22,11 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:fontFamily="@font/aclonica"
+        android:fontFamily="@font/balthazar"
         android:text="My Restaurants"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="@color/colorTextIcons"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:lineHeight="25px" />
 
