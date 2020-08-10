@@ -1,8 +1,9 @@
 package com.moringaschool.myrestaurants;
-import androidx.test.espresso.Espresso;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
+
+import com.moringaschool.myrestaurants.ui.MainActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
