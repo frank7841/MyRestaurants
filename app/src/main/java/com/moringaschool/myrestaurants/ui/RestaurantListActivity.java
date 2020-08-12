@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -47,20 +46,26 @@ protected void onCreate(Bundle savedInstanceState) {
 
     mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-//    if (mRecentAddress != null) {
-//        getRestaurants(mRecentAddress);
-//    }
-    Log.d("Shared Pref Location", mRecentAddress);
-
-
-
-
+    String washington="washington";
+    Call<YelpBusinessesSearchResponse> call;
+    YelpApi client = YelpClient.getClient();
     Intent intent = getIntent();
     String location = intent.getStringExtra("location");
 
-    YelpApi client = YelpClient.getClient();
+    if (mRecentAddress != null) {
+        //if there is, we pass it in our api
+        call = client.getRestaurants(mRecentAddress, "restaurants");
+    } else {
+        //otherwise we get it from the user input directly
+        call = client.getRestaurants(location, "restaurants");
+    }
 
-    Call<YelpBusinessesSearchResponse> call = client.getRestaurants(location, "restaurants");
+
+
+
+
+
+//    Call<YelpBusinessesSearchResponse> call = client.getRestaurants(location, "restaurants");
 
     call.enqueue(new Callback<YelpBusinessesSearchResponse>() {
 
